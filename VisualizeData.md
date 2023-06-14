@@ -1,7 +1,9 @@
+## Intro 
 Feature distribution informs us what data preparation techniques we can use. 
 By observing how two or more features are distributed, we can identify correlation or redundant variables.
 Then, we will be able to select features that are correlated with label. 
 
+## Univariate Plotting 
 Univariate distribution can be shown by histogram, a bar chart with x-axis representing range of data and y representing count. 
 Histogram works for both numerical and categorical data.
 
@@ -66,4 +68,29 @@ ax = sns.histplot(data=df, x="education")
 t2 = plt.xticks(rotation =45) 
 ```
 
+## Bivariate Plotting 
+Two columns are correlated. We don't want highly correlated features. 
+Numeric data -> Scatter plot (correlation between x and y axis) 
+- more dispersion, lower correlation 
+- Pearson's correlatioin: linear relationship between variavles 
 
+### ProduceBar plot 
+```
+df_sub = df[['age', 'capital-gain', 'hours-per-week', 'education','la
+sns.pairplot(data=df_sub)
+# use two differnt colors and decrease size of points to declutter
+sns.pairplot(data=df_sub, hue = 'label', plot_kws={'s':3}) 
+```
+### Produce Histogram 
+```
+fig1 = plt.figure(figsize=(13,7)) 
+t1 = plt.xticks(rotation=45)
+
+sns.histplot(data=df_sub, x="education", hue='label',  multiple="stack")
+```
+### Produce Bar plot on Categorical Feature to analyze distribution between two label classes
+```
+fig2 = plt.figure(figsize=(13,7)) 
+t2 = plt.xticks(rotation=45)
+sns.barplot(data = df_sub, x='education', y='label')
+```
