@@ -1,4 +1,4 @@
-Correlate, Covariance, Mutual Information
+### Correlate, Covariance, Mutual Information
 
 Both covariance and correlation find the linear dependencies between variables.
 Correlation finds the strength and direction of linear dependency between two random variables and is standarized so it's easier to work with.
