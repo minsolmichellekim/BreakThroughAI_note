@@ -10,3 +10,5 @@ An entropy of 0 means a variable is completely predictable, whereas an entropy o
 There is high mutual information between x1 and x2 if knowing x2 greatly reduces uncertainty (entropy) of x1.
 Mathematically, Mutual Information I(x1,x2) = H(x1) - H(x1|x2), where H(x1|x2): uncertainty of variable x1 given x2. 
 This tells us how knowing about one variable improves our understanding of another variable.
+
+When we have a large number of features to work with, we want to select the features that are most relevant in predicting our label. In this case, we can select the features with highest correlation and mutual information against our label.
