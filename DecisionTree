@@ -1,0 +1,44 @@
+Splitting your data set into partitions can improve the speed of computation for KNN. 
+As an alternative, we can use decision trees. 
+
+**Entropy**: measure of dispersion or uncertianty of discrete random variable
+Total entropy of variable: sum of each P x logarithm of P: H(y|parent) 
+Entropy is low when value of RV is predictable. 
+Entropy is 1 if variable has equal chance of processing either value of binary variable.
+
+**Information gain**: way to measure how much average entropy change after segmenting the data 
+Parent entropy minus the weighted average of child entropy 
+IG = H(y|parent)  - Sum(r(c)H(y|c) 
+H(y|parent): entropy of parent prior to split 
+C: collection of child regions c created by split
+r(c): ratio of number of examples in child region c divided by number of total examples in parent region prior to split
+H(y|c): entropy of examples within child region c created by split
+Sum(r(c)H(y|c) : average entropy across each new segment
+The more entropy was reduced after splitting on different features, the higher information gain 
+
+We essentially compute the information gain by:
+1. Finding the entropies of each child node weighted by the proportion of examples from the parent node that are contained in the child node
+2. Adding the entropies of the child nodes
+3. Subtracting the entropies from the original entropy of the parent node
+
+Entropy and information gain allow you to find the best splits in your features in order to construct a decision tree. 
+There are other criteria for splitting, such as Gini impurity and Chi-square, although information gain is the most commonly used.
+
+**Optimizing Tree**
+Each leaf is separate and distinct partition of feature space
+More leaves = complexity -->can have model estimation variation 
+Less leaves = low complexity --> model estimation bias
+Depth: number of layers or splits used 
+Leaf sample size, leaf distribution 
+
+1. Max_depth: higher values lead to larger trees and higher complexity 
+2. min_samples_split: higher value leads to smaller trees and lower complexity
+3. min_samples_leaf: (how many samples can be in leaf nodes) higher value leads to smaller trees and lower complexity
+
+**Bias-variance tradeoff**
+Finding the ideal hyperparameters helps control the model complexity, which, in turn, reduces model estimation errors due to bias and variance.  
+
+Bias: Model bias expresses the error that the model makes (how different is the prediction from the training data). Bias error arises when a model is too simple and is underfitting.
+Variance: Model variance expresses how consistent the predictions of a model are on different data. High variance is a sign that the model is too complex and is overfitting to the particular data set on which it is trained. 
+The ideal tradeoff between bias and variance lies in finding the right hyperparameters, leading to a model with balanced complexity.
+
