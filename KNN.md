@@ -33,7 +33,7 @@ ex) Manhattan Distance: sum of the absolute difference between each feature
 2. Apply trained model to X_test to produce predicted class labels
 3. Compare predicted class labels against true labels provided in y_test
 
-´´´
+```
 import pandas as pd
 import matplotlib
 %matplotlib notebook 
@@ -65,7 +65,7 @@ print(prediction)
 #Checking Accuracy 
 score = accuracy_score(y_test, prediction) 
 print('Accuracy score of model: ' + str(score))
-´´´
+```
 
 ### Enhancing KNN
 1. Resolving ties: case without most common label --> fall back onto majority label within the k-2 closest neighbors (If 3NN results tie, then fall back to 1NN and get definitive label)
