@@ -44,25 +44,25 @@ import os
 filename = os.path.join(os.getcwd(), "data", "Iris_Data.csv" 
 df_iris = pd.read_csv(filename, header=0) 
 
-# pick a few random examples
+#pick a few random examples
 df_iris.sample(n=10, replace=False, random_state = 1)
 
-# KNN
+#KNN
 number_of_neighbors = 3
 visualize_knn(number_of_neighbors)
 
-# Create labeled examples from dataset for training phase
+#Create labeled examples from dataset for training phase
 X = df_iris[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']] #features 
 y = df_iris['species'] #labels
 
-# Model
+#Model
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state =4) 
 model = KNeighborsClassifier(n_neighbors =3) 
 model.fit(X_train, y_train) 
 prediction = model.predict(X_test) 
 print(prediction) 
 
-# Checking Accuracy 
+#Checking Accuracy 
 score = accuracy_score(y_test, prediction) 
 print('Accuracy score of model: ' + str(score))
 ´´´
