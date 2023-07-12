@@ -11,25 +11,25 @@ Do units of analysis appear multiple times in the data?
 Is there a time dimension? 
 If no, then we can do random selection 
 
-´´´
+```
 sample_pct = 0.2
 n= df.shape[0]
 randomizer = np.random.random(n)
 train = df([randomizer>sample_pct)]
 test =  df([randomizer<=sample_pct)]
-´´´
+```
 
 **Determining splitting method**
 Multiple same userID --> might violate independent rule
 Use hash bucket that is deterministic. Example with same id will only be in one of the set
 
-´´´
+```
 def id_hasher(x, buckets= 100): 
   return (has(x) %buckets)/float(buckets) 
 df['hash_bucket'] = df['id'].apply(id_hasher) 
 train = df([df.hash_bucket>sample_pct)]
 test =  df([df.hash_bucke<=sample_pct)]
-´´´
+```
 
 **Model Selection Overview**
 Two criteria
@@ -41,14 +41,14 @@ Sufficient explor
 Model design dimensions
 
 **Algorithm**
-´´´
+```
 model candidates = [ ] 
 feature_sets = []
 
 for candidate in model_candidates: 
   for X_set is feature sets: 
     candidate.fit(df[X_set], d[y]
-´´´
+```
 Linear algorithms, fewer features, restrictive hyper-parameter, low complexity unlike non-linear algorithms 
 
 
@@ -57,7 +57,7 @@ Holdout method: randomly splitting dataset into training and validation subsets
 
 K-fold cross-validation method: split data set into equally sized subsets or folds, with k representing number of folds. 
 
-´´´
+```
 folds = KFold(n_splits=5, shuffle = True, random_state=10) 
 model_scores = []
 model_params = [] 
@@ -70,14 +70,14 @@ for md in max_depths:
   model_scores.append(score) 
   model_params.append(md) 
 score_df = pd.DataFrame({'score': model_scores, 'param': model_params})
-´´´
+```
 
-´´´
+```
 folds= KFold(n_splits=5, shuffle=True, random_state=10) 
 clf = GridSearchCV(DecisionTreeClassifier(), param_grid = {'max_depth'= max_depths}, cv= folds, scoring = 'roc_auc'}
 clf.fit(df[X], df[y])
 print(clf.best_estimator_)
-´´´
+```
 
 Choosing hyperparameter configurations 
 Grid search: goes through various combinations of hyperparameters systematically
