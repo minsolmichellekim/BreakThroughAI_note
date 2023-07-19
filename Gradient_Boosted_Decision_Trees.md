@@ -18,8 +18,7 @@ Full model: weighted sum over the trees
 4. Produce new $f(X)$ by adding $\gamma \cdot v1_1 \cdot T_1(X)$ to our previous version of $f(X)$. 
 5. Repeat until reach number of trees desired (Residual graph will flatten out as error of $f(X)$ is reduced.
 
-### Pseudocode 
-
+Shrinkage: weak model is multiplied by small values before added to strong model. Controls how fast strong model is learning, help limiting overfitting. 
 
 ### Random Forest vs. Gradient Boosted Decision Trees Comparison 
 
