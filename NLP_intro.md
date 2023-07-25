@@ -19,3 +19,16 @@ Preprocessing Text with three methods
 Binary = binary presence of tokein in document 
 count = count of token in document 
 TF-IDF: if token appears in given document, importance to document goes up
+
+Steps for NLP
+1. Data Cleaning (Remove stop words), lowercase 
+- Stemming (reducing words into word root) and limitization (reduce word into single form)
+- Speech tagging (identify part of speech)
+- Name entity recognization (person/location/company etc)
+5. Tokenization
+- Split paragraphs into words, text etc, each is token
+6. Vectorization
+- extract important featurs
+- Count vectorization (count particular word in document) + TFIDF (Term Frequency Inverse Document Frequency, weighted score)
+7. Model Development
+- Passing to ML model
