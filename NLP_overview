@@ -1,0 +1,21 @@
+**Pre-process**
+Lemmatization: Reduce storage 
+N-gram (n number of words together) 
+Remove stop words
+
+**Feature-ize**
+- Convert remaining tokens to numeric representation 
+- Binary, count, term frequency inverse document frequency: use the term frequency within a doc divided by document frequency 
+- Word embedding: convert words to strings, sequences of vectors, attempt to maintaining semantic meaning
+    - How similar are particular words 
+    - word2vec algorithm, built uisng continuous bag of words or Skip-Gram, neural network with single hidden layer with embeddings 
+    - GloVe, where they take input a large corpus of text and produce vector space of 100-300 dimensions
+    - Document embeddings: how can we represetn whole document like a tweet or review as vector 
+
+**Model**
+Neural Networks 
+- Linear and non-linear boudnaries
+  - Linear boundary: logistic regression = 1 neuron
+  - Non-linear boundaries: combine linear boundaries, activation functions 
+Logistic regression
+- Learned 
